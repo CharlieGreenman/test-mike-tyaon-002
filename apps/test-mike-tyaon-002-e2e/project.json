@@ -1,0 +1,29 @@
+{
+  "name": "test-mike-tyaon-002-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/test-mike-tyaon-002-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/test-mike-tyaon-002-e2e/cypress.json",
+        "devServerTarget": "test-mike-tyaon-002:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "test-mike-tyaon-002:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/test-mike-tyaon-002-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["test-mike-tyaon-002"]
+}
